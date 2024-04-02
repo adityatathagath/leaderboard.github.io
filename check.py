@@ -82,3 +82,28 @@ participantNames.forEach(name => {
     cell.textContent = name;
     matrixContainer.appendChild(cell);
 });
+
+
+@@@@@@@@
+import requests
+
+def get_stock_news(symbol):
+    api_key = 'YOUR_API_KEY'  # Replace with your Alpha Vantage API key
+    url = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=5min&apikey={api_key}'
+    
+    try:
+        response = requests.get(url)
+        data = response.json()
+        news_data = data['articles']  # Adjust this depending on the structure of the API response
+        return news_data
+    except Exception as e:
+        print(f"Error fetching news data: {e}")
+        return None
+
+# Example usage
+symbol = 'AAPL'  # Replace with the stock symbol you're interested in
+news_data = get_stock_news(symbol)
+if news_data:
+    print(news_data)
+else:
+    print("Failed to fetch news data.")
