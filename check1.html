@@ -38,12 +38,12 @@
     </nav>
 
     <!-- Stock ticker -->
-    <div class="bg-gray-200 text-gray-800 py-2 overflow-hidden">
-        <div class="flex p-2 gap-4 animate-ticker">
+    <div class="bg-gray-200 text-gray-800 py-2 overflow-hidden flex justify-end">
+        <div class="flex gap-4 animate-ticker">
             <!-- Placeholder for stock ticker items (replace with dynamic data) -->
-            <span class="bg-white px-3 py-1 rounded-md">Stock A: $100 (+1.5%)</span>
-            <span class="bg-white px-3 py-1 rounded-md">Stock B: $150 (-0.8%)</span>
-            <span class="bg-white px-3 py-1 rounded-md">Stock C: $80 (+2.3%)</span>
+            <span class="px-3 py-1 rounded-md bg-green-300">Stock A: $100 (+1.5%)</span>
+            <span class="px-3 py-1 rounded-md bg-red-300">Stock B: $150 (-0.8%)</span>
+            <span class="px-3 py-1 rounded-md bg-green-300">Stock C: $80 (+2.3%)</span>
             <!-- Add more stock ticker items as needed -->
         </div>
     </div>
@@ -126,13 +126,4 @@
         tickerItems.forEach((item, index) => {
             item.style.animation = `ticker 10s linear infinite ${index * 2}s`;
         });
-    </script>
-
-    <!-- JavaScript for fade-in animation -->
-    <script>
-        document.querySelectorAll('.animate-fadeIn').forEach((box, index) => {
-            box.style.animation = `fadeIn 1s forwards ${index * 0.5}s`;
-        });
-    </script>
-</body>
-</html>
+    </script
