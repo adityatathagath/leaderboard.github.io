@@ -126,4 +126,13 @@
         tickerItems.forEach((item, index) => {
             item.style.animation = `ticker 10s linear infinite ${index * 2}s`;
         });
-    </script
+    </script>
+
+    <!-- JavaScript for fade-in animation -->
+    <script>
+        document.querySelectorAll('.animate-fadeIn').forEach((box, index) => {
+            box.style.animation = `fadeIn 1s forwards ${index * 0.5}s`;
+        });
+    </script>
+</body>
+</html>
