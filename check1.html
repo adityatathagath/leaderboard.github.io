@@ -1,123 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecodamus - A Game of Predictions</title>
-    <!-- Include Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        @keyframes ticker {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-    </style>
-</head>
-<body class="bg-gray-100">
-    <!-- Hero section -->
-    <div class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="lg:text-center">
-                <img src="your-logo.png" alt="Logo" class="h-20 mx-auto">
-                <h2 class="text-3xl font-semibold mt-4">Welcome to Ecodamus - A Game of Predictions</h2>
-            </div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecodamus - Game of Predictions</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script> </head>
+<body>
+  <div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center z-50">
+    <h1 class="text-5xl font-bold text-white text-center">Welcome to Ecodamus - A Game of Predictions</h1>
+  </div>
+
+  <nav class="fixed top-0 left-0 w-full bg-gray-800 px-4 py-2 flex justify-between items-center z-40">
+    <a href="#" class="flex items-center">
+      <img src="your_logo.png" alt="Logo" class="w-10 h-10 mr-2">
+      <span class="text-xl font-bold text-white">ECODAMUS</span>
+    </a>
+    <button id="darkmode-toggle" class="focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 2a1 1 0 0 1 1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 1 1-1H10zm6 4a1 1 0 0 1-1-1H4a1 1 0 0 1-1 1v10a1 1 0 0 0 2 0v-10zm-4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </nav>
+
+  <div class="bg-gray-700 text-white px-4 py-2 flex items-center overflow-x-scroll whitespace-nowrap">
+    <span id="stock-ticker" class="animate-tick"></span> </div>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap">
+
+      <div class="w-full md:w-1/3 mb-4">
+        <div class="bg-gray-200 shadow-md rounded-lg p-4 flex justify-center items-center">
+          <span class="text-xl font-bold">Participants</span>
         </div>
-    </div>
+      </div>
 
-    <!-- Stock ticker -->
-    <div class="bg-gray-200 text-gray-800 py-2 overflow-hidden flex justify-end">
-        <div class="flex gap-4 animate-ticker">
-            <!-- Placeholder for stock ticker items (replace with dynamic data) -->
-            <span class="px-3 py-1 rounded-md bg-green-300 text-black">Stock A: $100 (+1.5%)</span>
-            <span class="px-3 py-1 rounded-md bg-red-300 text-black">Stock B: $150 (-0.8%)</span>
-            <span class="px-3 py-1 rounded-md bg-green-300 text-black">Stock C: $80 (+2.3%)</span>
-            <!-- Add more stock ticker items as needed -->
-        </div>
-    </div>
-
-    <!-- Main content -->
-    <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Participants word cloud -->
-        <div class="bg-white rounded-lg shadow-md p-4 opacity-0 animate-fadeIn">
-            <h2 class="text-lg font-semibold mb-4">Participants</h2>
-            <!-- Placeholder for word cloud (replace with actual word cloud) -->
-            <div class="flex flex-wrap gap-2">
-                <!-- Random participant names -->
-                <span class="bg-blue-200 px-2 py-1 rounded-lg">John</span>
-                <span class="bg-blue-200 px-2 py-1 rounded-lg">Alice</span>
-                <span class="bg-blue-200 px-2 py-1 rounded-lg">Bob</span>
-                <!-- Add more participant names as needed -->
-            </div>
-        </div>
-
-        <!-- Table 1 (placeholder) -->
-        <div class="bg-white rounded-lg shadow-md p-4 opacity-0 animate-fadeIn" style="animation-delay: 0.5s;">
-            <h2 class="text-lg font-semibold mb-4">Table 1</h2>
-            <!-- Placeholder for table content (replace with actual data) -->
-            <table class="w-full">
-                <thead>
-                    <tr>
-                        <th>Column 1</th>
-                        <th>Column 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Random table data -->
-                    <tr><td>Data 1</td><td>Data 2</td></tr>
-                    <tr><td>Data 3</td><td>Data 4</td></tr>
-                    <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Table 2 (placeholder) -->
-        <div class="bg-white rounded-lg shadow-md p-4 opacity-0 animate-fadeIn" style="animation-delay: 1s;">
-            <h2 class="text-lg font-semibold mb-4">Table 2</h2>
-            <!-- Placeholder for table content (replace with actual data) -->
-            <table class="w-full">
-                <thead>
-                    <tr>
-                        <th>Column 1</th>
-                        <th>Column 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Random table data -->
-                    <tr><td>Data 16</td><td>Data 17</td></tr>
-                    <tr><td>Data 18</td><td>Data 19</td></tr>
-                    <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- JavaScript for dark mode toggle -->
-    <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark');
-        });
-    </script>
-
-    <!-- JavaScript for stock ticker animation -->
-    <script>
-        const tickerItems = document.querySelectorAll('.animate-ticker > span');
-        tickerItems.forEach((item, index) => {
-            item.style.animation = `ticker 10s linear infinite ${index * 2}s`;
-        });
-    </script>
-
-    <!-- JavaScript for fade-in animation -->
-    <script>
-        document.querySelectorAll('.animate-fadeIn').forEach((box, index) => {
-            box.style.animation = `fadeIn 1s forwards ${index * 0.5}s`;
-        });
-    </script>
-</body>
-</html>
+      <div class="w-full md:w-1/3 mb-4">
+        <div class="bg-gray-200 shadow-md rounded-lg p-4">
+          <table class="w-full table-auto">
+            <thead>
+              <tr>
+                <th class="text-left px-2 py-1">Header 1</th>
+                <th class="text-left px-2 py-1">Header 2</th>
+                <th class="text-left px-2 py-1">Header 3</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-2 py-1">Data 1</td>
+                <td class="px-
