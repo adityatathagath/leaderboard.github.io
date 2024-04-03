@@ -18,33 +18,13 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <!-- Navigation bar -->
-    <nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
-        <!-- Logo -->
-        <div>
-            <img src="your-logo.png" alt="Logo" class="h-8">
-        </div>
-        <!-- Title -->
-        <div class="text-lg font-semibold">ECODAMUS</div>
-        <!-- Dark mode button -->
-        <div>
-            <button id="darkModeToggle" class="bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9a7 7 0 00-14 0v11a3 3 0 003 3h8a3 3 0 003-3V9z"/>
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Stock ticker -->
-    <div class="bg-gray-200 text-gray-800 py-2 overflow-hidden flex justify-end">
-        <div class="flex gap-4 animate-ticker">
-            <!-- Placeholder for stock ticker items (replace with dynamic data) -->
-            <span class="px-3 py-1 rounded-md bg-green-300">Stock A: $100 (+1.5%)</span>
-            <span class="px-3 py-1 rounded-md bg-red-300">Stock B: $150 (-0.8%)</span>
-            <span class="px-3 py-1 rounded-md bg-green-300">Stock C: $80 (+2.3%)</span>
-            <!-- Add more stock ticker items as needed -->
+    <!-- Hero section -->
+    <div class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="lg:text-center">
+                <img src="your-logo.png" alt="Logo" class="h-20 mx-auto">
+                <h2 class="text-3xl font-semibold mt-4">Welcome to Ecodamus - A Game of Predictions</h2>
+            </div>
         </div>
     </div>
 
@@ -56,12 +36,10 @@
             <!-- Placeholder for word cloud (replace with actual word cloud) -->
             <div class="flex flex-wrap gap-2">
                 <!-- Random participant names -->
-                <?php
-                    $participants = ["John", "Alice", "Bob", "Emily", "Charlie", "Emma", "David", "Olivia", "Sophia", "Michael", "Ella", "William", "Mia", "James", "Isabella", "Alexander", "Amelia", "Henry", "Charlotte", "Liam", "Ava", "Benjamin", "Harper", "Ethan", "Evelyn", "Daniel", "Abigail", "Matthew", "Grace", "Joseph", "Sophie", "Andrew", "Chloe", "Lucas", "Zoe", "Jackson", "Lily", "Samuel", "Megan", "Gabriel", "Madison", "Nathan", "Natalie", "Dylan", "Sarah"];
-                    for ($i = 0; $i < 45; $i++) {
-                        echo '<span class="bg-blue-200 px-2 py-1 rounded-lg">' . $participants[array_rand($participants)] . '</span>';
-                    }
-                ?>
+                <span class="bg-blue-200 px-2 py-1 rounded-lg">John</span>
+                <span class="bg-blue-200 px-2 py-1 rounded-lg">Alice</span>
+                <span class="bg-blue-200 px-2 py-1 rounded-lg">Bob</span>
+                <!-- Add more participant names as needed -->
             </div>
         </div>
 
@@ -78,11 +56,9 @@
                 </thead>
                 <tbody>
                     <!-- Random table data -->
-                    <?php
-                        for ($i = 0; $i < 15; $i++) {
-                            echo '<tr><td>Data ' . ($i + 1) . '</td><td>Data ' . ($i + 2) . '</td></tr>';
-                        }
-                    ?>
+                    <tr><td>Data 1</td><td>Data 2</td></tr>
+                    <tr><td>Data 3</td><td>Data 4</td></tr>
+                    <!-- Add more rows as needed -->
                 </tbody>
             </table>
         </div>
@@ -100,11 +76,9 @@
                 </thead>
                 <tbody>
                     <!-- Random table data -->
-                    <?php
-                        for ($i = 0; $i < 15; $i++) {
-                            echo '<tr><td>Data ' . ($i + 16) . '</td><td>Data ' . ($i + 17) . '</td></tr>';
-                        }
-                    ?>
+                    <tr><td>Data 16</td><td>Data 17</td></tr>
+                    <tr><td>Data 18</td><td>Data 19</td></tr>
+                    <!-- Add more rows as needed -->
                 </tbody>
             </table>
         </div>
