@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecodamus - A Game of Predictions</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation bar -->
+    <nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
+        <!-- Logo -->
+        <div>
+            <img src="your-logo.png" alt="Logo" class="h-8">
+        </div>
+        <!-- Title -->
+        <div class="text-lg font-semibold">ECODAMUS</div>
+        <!-- Dark mode button (placeholder) -->
+        <div>
+            <button class="bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-md">Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Stock ticker -->
+    <div class="bg-gray-200 text-gray-800 py-2 overflow-hidden">
+        <div class="flex p-2 gap-4 animate-ticker">
+            <!-- Placeholder for stock ticker items (replace with dynamic data) -->
+            <span class="bg-white px-3 py-1 rounded-md">Stock A: $100 (+1.5%)</span>
+            <span class="bg-white px-3 py-1 rounded-md">Stock B: $150 (-0.8%)</span>
+            <span class="bg-white px-3 py-1 rounded-md">Stock C: $80 (+2.3%)</span>
+            <!-- Add more stock ticker items as needed -->
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Participants word cloud -->
+        <div class="bg-white rounded-lg shadow-md p-4 opacity-0 animate-fadeIn">
+            <h2 class="text-lg font-semibold mb-4">Participants</h2>
+            <!-- Placeholder for word cloud (replace with actual word cloud) -->
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-blue-200 px-2 py-1 rounded-lg">Participant A</span>
+                <span class="bg-blue-200 px-2 py-1 rounded-lg">Participant B</span>
+                <span class="bg-blue-200 px-2 py-1 rounded-lg">Participant C</span>
+                <!-- Add more participant names as needed -->
+            </div>
+        </div>
+
+        <!-- Table 1 (placeholder) -->
+        <div class="bg-white rounded-lg shadow-md p-4 opacity-0 animate-fadeIn" style="animation-delay: 0.5s;">
+            <h2 class="text-lg font-semibold mb-4">Table 1</h2>
+            <!-- Placeholder for table content (replace with actual data) -->
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows -->
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table 2 (placeholder) -->
+        <div class="bg-white rounded-lg shadow-md p-4 opacity-0 animate-fadeIn" style="animation-delay: 1s;">
+            <h2 class="text-lg font-semibold mb-4">Table 2</h2>
+            <!-- Placeholder for table content (replace with actual data) -->
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows -->
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Run fade-in animation for the three boxes
+        document.querySelectorAll('.animate-fadeIn').forEach((box, index) => {
+            box.style.animation = `fadeIn 1s forwards ${index * 0.5}s`;
+        });
+    </script>
+</body>
+</html>
