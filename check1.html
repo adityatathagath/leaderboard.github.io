@@ -7,12 +7,12 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
             }
-            to {
-                opacity: 1;
+            100% {
+                transform: translateX(-100%);
             }
         }
     </style>
@@ -26,9 +26,14 @@
         </div>
         <!-- Title -->
         <div class="text-lg font-semibold">ECODAMUS</div>
-        <!-- Dark mode button (placeholder) -->
+        <!-- Dark mode button -->
         <div>
-            <button class="bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-md">Dark Mode</button>
+            <button id="darkModeToggle" class="bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9a7 7 0 00-14 0v11a3 3 0 003 3h8a3 3 0 003-3V9z"/>
+                </svg>
+            </button>
         </div>
     </nav>
 
@@ -50,10 +55,13 @@
             <h2 class="text-lg font-semibold mb-4">Participants</h2>
             <!-- Placeholder for word cloud (replace with actual word cloud) -->
             <div class="flex flex-wrap gap-2">
-                <span class="bg-blue-200 px-2 py-1 rounded-lg">Participant A</span>
-                <span class="bg-blue-200 px-2 py-1 rounded-lg">Participant B</span>
-                <span class="bg-blue-200 px-2 py-1 rounded-lg">Participant C</span>
-                <!-- Add more participant names as needed -->
+                <!-- Random participant names -->
+                <?php
+                    $participants = ["John", "Alice", "Bob", "Emily", "Charlie", "Emma", "David", "Olivia", "Sophia", "Michael", "Ella", "William", "Mia", "James", "Isabella", "Alexander", "Amelia", "Henry", "Charlotte", "Liam", "Ava", "Benjamin", "Harper", "Ethan", "Evelyn", "Daniel", "Abigail", "Matthew", "Grace", "Joseph", "Sophie", "Andrew", "Chloe", "Lucas", "Zoe", "Jackson", "Lily", "Samuel", "Megan", "Gabriel", "Madison", "Nathan", "Natalie", "Dylan", "Sarah"];
+                    for ($i = 0; $i < 45; $i++) {
+                        echo '<span class="bg-blue-200 px-2 py-1 rounded-lg">' . $participants[array_rand($participants)] . '</span>';
+                    }
+                ?>
             </div>
         </div>
 
@@ -69,12 +77,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Table rows -->
-                    <tr>
-                        <td>Data 1</td>
-                        <td>Data 2</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
+                    <!-- Random table data -->
+                    <?php
+                        for ($i = 0; $i < 15; $i++) {
+                            echo '<tr><td>Data ' . ($i + 1) . '</td><td>Data ' . ($i + 2) . '</td></tr>';
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -91,19 +99,37 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Table rows -->
-                    <tr>
-                        <td>Data 1</td>
-                        <td>Data 2</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
+                    <!-- Random table data -->
+                    <?php
+                        for ($i = 0; $i < 15; $i++) {
+                            echo '<tr><td>Data ' . ($i + 16) . '</td><td>Data ' . ($i + 17) . '</td></tr>';
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
     </div>
 
+    <!-- JavaScript for dark mode toggle -->
     <script>
-        // Run fade-in animation for the three boxes
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+        });
+    </script>
+
+    <!-- JavaScript for stock ticker animation -->
+    <script>
+        const tickerItems = document.querySelectorAll('.animate-ticker > span');
+        tickerItems.forEach((item, index) => {
+            item.style.animation = `ticker 10s linear infinite ${index * 2}s`;
+        });
+    </script>
+
+    <!-- JavaScript for fade-in animation -->
+    <script>
         document.querySelectorAll('.animate-fadeIn').forEach((box, index) => {
             box.style.animation = `fadeIn 1s forwards ${index * 0.5}s`;
         });
