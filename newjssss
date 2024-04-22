@@ -1,0 +1,103 @@
+// Define quiz questions array (21 questions)
+const questions = [
+  // Questions will be added here
+];
+
+// Function to display quiz questions
+function displayQuestion() {
+  // Check if all questions have been answered
+  if (currentQuestionIndex >= questions.length) {
+    // End of quiz, display leaderboard
+    displayLeaderboard();
+    return;
+  }
+
+  // Display current question
+  const currentQuestion = questions[currentQuestionIndex];
+  const quizSection = document.getElementById('quizSection');
+  quizSection.innerHTML = `
+    <h2 class="text-xl font-bold mb-4">${currentQuestion.question}</h2>
+    <div class="mb-4">
+      ${currentQuestion.options.map((option, index) => `
+        <input type="radio" id="option${index}" name="answer" value="${index}">
+        <label for="option${index}" class="ml-2">${option}</label><br>
+      `).join('')}
+    </div>
+    <button id="submitAnswerBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit Answer</button>
+  `;
+
+  // Add event listener for submitting answers
+  document.getElementById('submitAnswerBtn').addEventListener('click', submitAnswer);
+}
+
+// Function to submit user answer
+function submitAnswer() {
+  // Get selected answer
+  const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+  if (!selectedAnswer) {
+    // No answer selected, display error message
+    alert('Please select an answer before submitting.');
+    return;
+  }
+
+  // Record user answer
+  userAnswers.push(parseInt(selectedAnswer.value));
+
+  // Update user score
+  if (userAnswers[userAnswers.length - 1] === questions[currentQuestionIndex].correctAnswer) {
+    userScore += 2; // Add 2 points for correct answer
+  } else {
+    userScore -= 0.75; // Deduct 0.75 points for incorrect answer
+  }
+
+  // Move to the next question
+  currentQuestionIndex++;
+  displayQuestion();
+}
+
+// Function to display leaderboard
+function displayLeaderboard() {
+  // Calculate user's final score
+  const finalScore = userScore.toFixed(2);
+
+  // Retrieve leaderboard data from local storage
+  let leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+  // Get user's name from input field
+  const username = document.getElementById('username').value;
+
+  // Check if user already exists in the leaderboard
+  let userIndex = leaderboardData.findIndex(user => user.name === username);
+
+  // If user exists, update their score; otherwise, add new user to the leaderboard
+  if (userIndex !== -1) {
+    leaderboardData[userIndex].score = finalScore;
+  } else {
+    leaderboardData.push({ name: username, score: finalScore });
+  }
+
+  // Sort leaderboard data by score (descending order)
+  leaderboardData.sort((a, b) => b.score - a.score);
+
+  // Store updated leaderboard data in local storage
+  localStorage.setItem('leaderboard', JSON.stringify(leaderboardData));
+
+  // Display leaderboard
+  const leaderboardSection = document.getElementById('leaderboardSection');
+  leaderboardSection.innerHTML = `
+    <h2 class="text-2xl font-bold mb-4">Leaderboard</h2>
+    ${leaderboardData.map((user, index) => `
+      <p class="text-lg mb-2">${index + 1}. ${user.name}: ${user.score}</p>
+    `).join('')}
+  `;
+  leaderboardSection.classList.remove('hidden');
+}
+
+// Event listener for starting the quiz
+document.getElementById('startQuizBtn').addEventListener('click', () => {
+  // Hide game information section
+  document.getElementById('quizSection').classList.remove('hidden');
+  document.getElementById('startQuizBtn').classList.add('hidden');
+  // Start displaying quiz questions
+  displayQuestion();
+});
